@@ -8,7 +8,7 @@ def calculate(data):
     mess = ""
 
     data = data.splitlines()
-    clean_data = [i.split(':')[2].strip() if ":" in i else i.strip() for i in data]
+    clean_data = [i.split(':')[-1].strip() if ":" in i else i.strip() for i in data]
 
     for i in clean_data:
         spli = i.split('-')
@@ -112,4 +112,5 @@ def message():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
