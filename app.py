@@ -11,7 +11,10 @@ def calculate(data):
     clean_data = [i.split(':')[-1].strip() if ":" in i else i.strip() for i in data]
 
     for i in clean_data:
-        spli = i.remove('*').split('-').split('=')
+        if '-' in i:
+            spli = i.replace('*', '').split('-')
+        else:
+            spli = i.replace('*', '').split('=')
 
         if len(spli) < 3:
             if len(spli[0]) == 1:  # single
@@ -112,6 +115,7 @@ def message():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
